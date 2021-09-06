@@ -1,0 +1,5 @@
+com.aktios.app.adapters.jpa
+com.aktios.app.adapters.jpa.daos
+com.aktios.app.adapters.rest
+com.aktios.app.domain.persistence
+com.aktios.app.domain.services

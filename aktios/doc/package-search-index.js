@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.aktios.app.adapters.jpa.daos"},{"l":"com.aktios.app.domain.persistence"}]
