@@ -20,12 +20,12 @@ public interface NewsletterPersistence {
 	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
 	 * @return {@link Long}.
 	 */
-	Long save(NewsletterSubscription newsletterSubscription);
+	String save(NewsletterSubscription newsletterSubscription);
 
 	/**
 	 * Deletes a newsletter subscription.
-	 * @param id {@link Long}.
+	 * @param id {@link String}.
 	 */
-	void delete(Long id);
+	void delete(String id);
 
 }

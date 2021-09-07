@@ -44,8 +44,8 @@ class NewsletterServiceTest {
 	@BeforeEach
 	void init() {
 		Mockito.when(newsletterPersistence.getAll()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
-		Mockito.when(newsletterPersistence.save(Mockito.any(NewsletterSubscription.class))).thenReturn(1L);
-		doNothing().when(newsletterPersistence).delete(Mockito.anyLong());
+		Mockito.when(newsletterPersistence.save(Mockito.any(NewsletterSubscription.class))).thenReturn("1L");
+		doNothing().when(newsletterPersistence).delete(Mockito.anyString());
 	}
 
 	/**
@@ -77,8 +77,8 @@ class NewsletterServiceTest {
 	void deleteNewsletterSubscriptionTest() {
 		newsletterServiceForVoids.delete(null);
 		verify(newsletterServiceForVoids, times(1)).delete(null);
-		newsletterServiceForVoids.delete(1L);
-		verify(newsletterServiceForVoids, times(1)).delete(1L);
+		newsletterServiceForVoids.delete("");
+		verify(newsletterServiceForVoids, times(1)).delete("");
 	}
 
 }

@@ -44,8 +44,8 @@ class SubscriptionsControllerTest {
 	@BeforeEach
 	void init() {
 		Mockito.when(newsletterService.getAll()).thenReturn(ObjectMotherNewsletter.getNewsletterSubscriptionStream());
-		Mockito.when(newsletterService.create(Mockito.any(NewsletterSubscription.class))).thenReturn(1L);
-		doNothing().when(newsletterService).delete(Mockito.anyLong());
+		Mockito.when(newsletterService.create(Mockito.any(NewsletterSubscription.class))).thenReturn("1L");
+		doNothing().when(newsletterService).delete(Mockito.anyString());
 	}
 
 	/**

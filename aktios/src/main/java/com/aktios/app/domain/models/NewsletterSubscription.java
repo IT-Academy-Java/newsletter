@@ -28,6 +28,18 @@ public class NewsletterSubscription extends AbstractModel {
 	/** {@link NewsletterTechnologies} {@link List} technologies */
 	private List<NewsletterTechnologies> technologies;
 
+	public NewsletterSubscription(String name, String surname, LocalDate birthday, NewsletterFrequency frequency, List<NewsletterTechnologies> technologies) {
+		this.name = name;
+		this.surname = surname;
+		this.birthday = birthday;
+		this.frequency = frequency;
+		this.technologies = technologies;
+	}
+
+	public NewsletterSubscription() {
+
+	}
+
 	/**
 	 * @return the name
 	 */

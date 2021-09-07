@@ -5,6 +5,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -70,8 +71,8 @@ class NewsletterJpaTest {
 	 */
 	@Test
 	void deleteNewsletterSubscriptionTest() {
-		newsletterJpaForVoids.delete(1L);
-		verify(newsletterJpaForVoids, times(1)).delete(1L);
+		newsletterJpaForVoids.delete("");
+		verify(newsletterJpaForVoids, times(1)).delete("");
 		newsletterJpaForVoids.delete(null);
 		verify(newsletterJpaForVoids, times(1)).delete(null);
 	}

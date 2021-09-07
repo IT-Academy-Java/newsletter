@@ -45,7 +45,7 @@ public class SubscriptionsController {
 	 */
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Long createSubscriptions(@RequestBody NewsletterSubscription newsletterSubscription) {
+	public String createSubscriptions(@RequestBody NewsletterSubscription newsletterSubscription) {
 		return service.create(newsletterSubscription);
 	}
 
@@ -55,7 +55,7 @@ public class SubscriptionsController {
 	 */
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteSubscription(@PathVariable("id") Long id) {
+	public void deleteSubscription(@PathVariable("id") String id) {
 		service.delete(id);
 	}
 

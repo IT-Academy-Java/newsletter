@@ -4,56 +4,53 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 import com.aktios.app.annotations.ExcludeFromJacocoGeneratedReport;
 import com.aktios.app.domain.models.NewsletterSubscription;
+import com.mongodb.lang.NonNull;
+import com.mongodb.lang.Nullable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Newsletter Subscription Entity.
  * @author juanmafe.
  */
-@Entity
-@Table(name="NEWS_SUBS")
+@Document(collection="NEWS_SUBS")
 @ExcludeFromJacocoGeneratedReport
 public class NewsletterSubscriptionEntity {
 
-	/** {@link Long} id */
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;
 
 	/** {@link String} name */
-	@Column(name="NAME", length=200, nullable=false)
+	@Field(name="NAME")
+	@NonNull
 	private String name;
 
 	/** {@link String} surname */
-	@Column(name="SURNAME", length=200, nullable=false)
+	@Field(name="SURNAME")
+	@NonNull
 	private String surname;
 
 	/** {@link LocalDate} birthday */
-	@Column(name="BIRTHDAY", length=200, nullable=true)
+	@Field(name="BIRTHDAY")
+	@Nullable
 	private LocalDate birthday;
 
 	/** {@link NewsletterFrequencyEntity} frequency */
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_NEWS_SUBS_FREQ", nullable=false)
+	/**@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_NEWS_SUBS_FREQ", nullable=false)*/
 	private NewsletterFrequencyEntity frequency;
 
 	/** {@link NewsletterTechnologiesEntity} {@link List} technologies */
-	@ManyToMany(fetch = FetchType.LAZY)
+	/**@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "NEWS_SUBS_TAGS",
-		joinColumns = @JoinColumn(name = "ID_NEWS_SUBS", nullable = false),
-		inverseJoinColumns = @JoinColumn(name="ID_NEWS_SUBS_TECH", nullable = false))
+			joinColumns = @JoinColumn(name = "ID_NEWS_SUBS", nullable = false),
+			inverseJoinColumns = @JoinColumn(name="ID_NEWS_SUBS_TECH", nullable = false))*/
 	private List<NewsletterTechnologiesEntity> technologies;
 
 	/**
@@ -76,14 +73,14 @@ public class NewsletterSubscriptionEntity {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
