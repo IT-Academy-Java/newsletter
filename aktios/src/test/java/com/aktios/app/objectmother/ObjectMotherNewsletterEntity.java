@@ -18,7 +18,7 @@ public class ObjectMotherNewsletterEntity {
 
 	public static NewsletterSubscriptionEntity getNewsletterSubscriptionEntity() {
 		var newsletterSubscriptionEntity = new NewsletterSubscriptionEntity();
-		newsletterSubscriptionEntity.setId(1L);
+		newsletterSubscriptionEntity.setId("");
 		newsletterSubscriptionEntity.setName("Juan");
 		newsletterSubscriptionEntity.setSurname("Pablo");
 		newsletterSubscriptionEntity.setFrequency(getNewsletterFrequencyEntity());

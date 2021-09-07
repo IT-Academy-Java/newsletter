@@ -25,12 +25,12 @@ public class NewsletterJpa implements NewsletterPersistence {
 	}
 
 	@Override
-	public Long save(NewsletterSubscription newsletterSubscription) {
-		return newsletterSubscription != null ? repository.save(new NewsletterSubscriptionEntity(newsletterSubscription)).getId() : -1L;
+	public String save(NewsletterSubscription newsletterSubscription) {
+		return newsletterSubscription != null ? repository.save(new NewsletterSubscriptionEntity(newsletterSubscription)).getId() : "correct";
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(String id) {
 		if (id != null) repository.deleteById(id);
 	}
 

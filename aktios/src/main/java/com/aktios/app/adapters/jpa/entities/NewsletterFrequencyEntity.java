@@ -1,32 +1,30 @@
 package com.aktios.app.adapters.jpa.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.mongodb.lang.NonNull;
 import org.springframework.beans.BeanUtils;
 import com.aktios.app.annotations.ExcludeFromJacocoGeneratedReport;
 import com.aktios.app.domain.models.NewsletterFrequency;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-/**
- * Newsletter Frequency Entity.
- * @author juanmafe.
- */
-@Entity
-@Table(name="NEWS_SUBS_FREQ")
+
+@Document(collection = "NEWS_SUBS_FREQ")
 @ExcludeFromJacocoGeneratedReport
 public class NewsletterFrequencyEntity {
 
 	/** {@link Long} id */
-	@Id
-	private Long id;
+	@MongoId
+	private String id;
 
 	/** {@link String} name */
-	@Column(name="NAME", length=200, nullable=false)
+	@Field(name="NAME")
+	@NonNull
 	private String name;
 
 	/** {@link String} description */
-	@Column(name="DESCRIPTION", length=200, nullable=false)
+	@Field(name="DESCRIPTION")
+	@NonNull
 	private String description;
 
 	/**
@@ -47,14 +45,14 @@ public class NewsletterFrequencyEntity {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

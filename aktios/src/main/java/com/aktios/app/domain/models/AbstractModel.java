@@ -10,20 +10,20 @@ import com.aktios.app.annotations.ExcludeFromJacocoGeneratedReport;
 @ExcludeFromJacocoGeneratedReport
 public abstract class AbstractModel {
 
-	/** {@link Long} id */
-	private Long id;
+	/** {@link String} id */
+	private String id;
 
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

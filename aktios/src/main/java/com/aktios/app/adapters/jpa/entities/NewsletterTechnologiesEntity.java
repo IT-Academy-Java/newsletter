@@ -2,38 +2,36 @@ package com.aktios.app.adapters.jpa.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+
+import com.mongodb.lang.NonNull;
 import org.springframework.beans.BeanUtils;
 import com.aktios.app.annotations.ExcludeFromJacocoGeneratedReport;
 import com.aktios.app.domain.models.NewsletterTechnologies;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-/**
- * Newsletter Technologies Entity.
- * @author juanmafe.
- */
-@Entity
-@Table(name="NEWS_SUBS_TECH")
+
+@Document(collection = "NEWS_SUBS_TECH")
 @ExcludeFromJacocoGeneratedReport
 public class NewsletterTechnologiesEntity {
 
 	/** {@link Long} id */
-	@Id
-	private Long id;
+	@MongoId
+	private String id;
 
 	/** {@link String} name */
-	@Column(name="NAME", length=200, nullable=false)
+	@Field(name="NAME")
+	@NonNull
 	private String name;
 
 	/** {@link String} description */
-	@Column(name="DESCRIPTION", length=200, nullable=false)
+	@Field(name="DESCRIPTION")
+	@NonNull
 	private String description;
 
 	/** {@link NewsletterSubscriptionEntity} {@link List} newsletter */
-	@ManyToMany(mappedBy = "technologies")
+	//@ManyToMany(mappedBy = "technologies")
 	private List<NewsletterSubscriptionEntity> newsletter;
 
 	/**
@@ -54,14 +52,14 @@ public class NewsletterTechnologiesEntity {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

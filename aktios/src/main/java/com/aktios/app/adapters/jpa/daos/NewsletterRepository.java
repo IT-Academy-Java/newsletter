@@ -1,10 +1,12 @@
 package com.aktios.app.adapters.jpa.daos;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.aktios.app.adapters.jpa.entities.NewsletterSubscriptionEntity;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 /**
  * Newsletter JPA Repository by Spring Data.
  * @author juanmafe.
  */
-public interface NewsletterRepository extends JpaRepository<NewsletterSubscriptionEntity, Long> {}
+public interface NewsletterRepository extends MongoRepository<NewsletterSubscriptionEntity, Long> {
+    void deleteById(String id);
+}

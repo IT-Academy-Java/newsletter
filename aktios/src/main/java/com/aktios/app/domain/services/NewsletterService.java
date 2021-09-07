@@ -31,7 +31,7 @@ public class NewsletterService {
 	 * @param newsletterSubscription {@link NewsletterSubscription} Object.
 	 * @return {@link Long}.
 	 */
-	public Long create(NewsletterSubscription newsletterSubscription) {
+	public String create(NewsletterSubscription newsletterSubscription) {
 		if (NewsletterUtils.checkNewsletterFields(newsletterSubscription)) {
 			return persistence.save(newsletterSubscription);
 		}
@@ -42,7 +42,7 @@ public class NewsletterService {
 	 * Deletes a newsletter subscription.
 	 * @param id {@link Long}.
 	 */
-	public void delete(Long id) {
+	public void delete(String id) {
 		if (id != null) persistence.delete(id);
 	}
 
